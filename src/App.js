@@ -6,6 +6,7 @@ import Reviews from "./pages/Home/Reviews/Reviews";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import LogIn from "./pages/LogIn/LogIn/LogIn";
 import SignUp from "./pages/LogIn/SignUp/SignUp";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="reviews" element={<Reviews />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="myorders" element={<MyOrders />} />
+        <Route path="myprofile" element={<MyProfile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

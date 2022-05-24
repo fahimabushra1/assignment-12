@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../../Shared/Header/Header";
 
 const Home = () => {
     return (
-        <nav>
-            <Link to="/">Home</Link>
-        </nav>
+        <div>
+            <Header></Header>
+        </div>
 
     )
 }
