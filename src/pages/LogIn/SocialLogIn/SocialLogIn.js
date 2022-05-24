@@ -1,11 +1,34 @@
 import React from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
-const SocialLogIn=()=>{
-    return(
+
+const SocialLogin = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate()
+    let errorElement;
+    if (error) {
+        errorElement =
+
+            <div>
+                <p className="text-danger">Error: {error.message}</p>
+            </div>
+    }
+
+    if (user) {
+        navigate('/home')
+    }
+    return (
         <div>
-
+            <button
+                onClick={() => signInWithGoogle()}
+                className="btn btn-outline"
+            >Continue with Google</button>
+            {errorElement}
         </div>
     )
+
 }
 
-export default SocialLogIn;
+export default SocialLogin;

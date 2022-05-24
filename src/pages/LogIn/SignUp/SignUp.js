@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../../Shared/Loading/Loading';
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../../Hooks/UseToken';
+import SocialLogin from '../SocialLogIn/SocialLogIn';
 
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -122,10 +123,7 @@ const SignUp = () => {
                     </form>
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
                     <div className="divider">OR</div>
-                    <button
-                        onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
-                    >Continue with Google</button>
+                   <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div >
