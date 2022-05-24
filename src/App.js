@@ -17,7 +17,6 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="reviews" element={<Reviews />} />
-        <Route path="blogs" element={<Blogs />} />
         <Route path="myorders" element={<MyOrders />} />
         <Route path="myprofile" element={<MyProfile />} />
         <Route path="*" element={<NotFound />} />
