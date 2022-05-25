@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Bumper body kit/wide body kit",
+        "img": "https://i.ibb.co/3zRtdh2/car-bumper.jpg",
+        "description": "material-Plastic,PP,ABS plastic,PP+ABS position-Front bumper certification-CE color:black,black body kits size-180*60*60 product name-body kit fit for-auto parts treadmark-Leader transport package-bubble bags and carton box specification-210*100*80cm 68.00kgs HS code-45600123920",
+        "orderQuantity": "3 set",
+        "availableQuantity": "20000/year",
+        "price": "35000 per set"
+    },
+    {
+        "name": "Body kit",
+        "img": "https://i.ibb.co/f9SJzS9/auto-body-parts.jpg",
+        "description": "warrenty-1 product name-body kit painting-without painting fitment-100% fit installation-easy installation packeging-standard packaging customization-available",
+        "orderQuantity": "2 set",
+        "availableQuantity": "50000/year",
+        "price": "80000 per set"
+    },
+    {
+        "name": "Car bumper tuning",
+        "img": "https://i.ibb.co/PCKXSSJ/Car-Front-Bumper.jpg",
+        "description": "material-Plastic position-Front bumper certification-CE ISO color:black size-201*56*80 product name-body kit fit for-auto parts treadmark-Leader transport package-bubble bags and carton box specification-201*56*80cm 52.00kgs HS code-45600459920",
+        "orderQuantity": "3 set",
+        "availableQuantity": "50000/year",
+        "price": "45000 per set"
+    },
+    {
+        "name": "Bumper body kit/wide body kit diffuser spoiler",
+        "img": "https://i.ibb.co/vxPzZB8/car-body.jpg",
+        "description": "material-Plastic,PP,ABS plastic,PP+ABS position-Front bumper certification-CE color:black,black body kits size-180*60*60 product name-body kit fit for-auto parts treadmark-Leader transport package-bubble bags and carton box specification-210*100*80cm 68.00kgs HS code-45600123920",
+        "orderQuantity": "4set",
+        "availableQuantity": "50000/year",
+        "price": "40000 per set"
+    },
+    {
+        "name": "Bumper body kit/wide body kit BMW X-5 M-15",
+        "img": "https://i.ibb.co/QfNdW5X/front-bumper.jpg",
+        "description": "material-Plastic,PP,ABS plastic,PP+ABS position-Front bumper certification-CE color:black,black body kits size-180*60*60 product name-body kit fit for-auto parts treadmark-Leader transport package-bubble bags and carton box specification-210*100*80cm 68.00kgs HS code-45600123920",
+        "orderQuantity": "3 set",
+        "availableQuantity": "20000/year",
+        "price": "50000 per set"
+    },
+    {
+        "name": "Bumper body kit/wide body kit HONDA F-12",
+        "img": "https://i.ibb.co/dgRLWsD/bumper.jpg",
+        "description": "material-Plastic,PP,ABS plastic,PP+ABS position-Front bumper certification-CE color:black,black body kits size-180*60*60 product name-body kit fit for-auto parts treadmark-Leader transport package-bubble bags and carton box specification-210*100*80cm 68.00kgs HS code-45600123920",
+        "orderQuantity": "3 set",
+        "availableQuantity": "50000/year",
+        "price": "40000 per set"
+    }
+]
