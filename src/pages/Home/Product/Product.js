@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../Shared/Button/Button';
 const Product = ({ product }) => {
     const { _id, name, img, description, price } = product;
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Product = ({ product }) => {
                 </div>
             </div>
             <p className='text-justify mt-4'><small>{description.slice(0, 200) + "..."}</small></p>
-            <button onClick={() => navigateToProductDetail(_id)} className='bg-yellow-400 p-2 m-4 rounded'>Detail</button>
+            <Button onClick={() => navigateToProductDetail(_id)}>Detail</Button>
         </div>
     );
 };
