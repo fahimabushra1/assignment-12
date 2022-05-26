@@ -1,13 +1,17 @@
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useProduct from '../../../Hooks/UseProduct';
 import Product from '../Product/Product';
 
 const Products = () => {
 
-    const [products, setProducts] = useProduct();
+    const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
- 
+    useEffect(() => {
+        fetch('http://localhost:5000/product')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, []);
 
     const navigateToManageItems = () => {
         navigate('/manageitems');
