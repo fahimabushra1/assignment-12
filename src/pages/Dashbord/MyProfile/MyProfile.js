@@ -1,11 +1,10 @@
 import React from "react";
 
-const MyOrders=()=>{
-    return(
+const MyProfile = () => {
+    return (
         <div>
 
         </div>
     )
 }
-
-export default MyOrders;
+export default MyProfile;

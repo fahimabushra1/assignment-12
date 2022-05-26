@@ -29,7 +29,6 @@ const Products = () => {
                         </Product>)
                     }
                 </div>
-                <button onClick={() => navigateToManageItems()} className='bg-yellow-400 mx-96 p-2 rounded m-4 absolute bottom--6 left-48'>Manage Your Products</button>
             </div>
         </div>
     );

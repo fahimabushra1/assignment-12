@@ -18,12 +18,24 @@ const Header = () => {
         <li><Link to="/reviews">Reviews</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/myprofile">My Profile</Link></li>
-        <li><Link to="/signup">Sign up</Link></li>
-        {
-            user && <li><Link to="/dashboard">Dashboard</Link></li>
-        }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
     </>
+
+
+
+    {
+        user ?
+            <>
+                <Link to="/dashboard">Dashboard</Link>
+                <button className="btn btn-ghost" onClick={logout} >Sign Out</button>
+            </>
+            :
+            <>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Sign up</Link>
+            </>
+    }
+
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">

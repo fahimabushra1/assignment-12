@@ -9,16 +9,18 @@ const Product = ({ product }) => {
         navigate(`/product/${id}`);
     }
     return (
-        <div className='bg-slate-400 border-2 border-slate-200 rounded-xl pb-4 text-center'>
-            <div className='flex flex-row justify-around'>
+        <div class="card w-80 mt-6 bg-base-100 shadow-xl">
+            <figure>
                 <img className='w-40' src={img} alt="" />
-                <div className='pt-8'>
-                    <h2>{name}</h2>
-                    <p className='text-2xl text-yellow-400'>Price:TK{price}</p>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">{name}</h2>
+                <p>Price:TK{price}</p>
+                <p><small>{description.slice(0, 200) + "..."}</small></p>
+                <div class="card-actions justify-end">
+                    <Button onClick={() => navigateToProductDetail(_id)}>purchase</Button>
                 </div>
             </div>
-            <p className='text-justify mt-4'><small>{description.slice(0, 200) + "..."}</small></p>
-            <Button onClick={() => navigateToProductDetail(_id)}>Detail</Button>
         </div>
     );
 };
