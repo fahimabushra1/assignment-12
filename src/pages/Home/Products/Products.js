@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import PurchaseModal from '../../PurchaseModal/PurchaseModal';
 import Product from '../Product/Product';
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
-    const navigate = useNavigate();
+    const [order, setOrder] = useState(null);
+
+
 
     useEffect(() => {
         fetch('http://localhost:5000/product')
@@ -13,9 +15,6 @@ const Products = () => {
             .then(data => setProducts(data));
     }, []);
 
-    const navigateToManageItems = () => {
-        navigate('/manageitems');
-    }
 
     return (
         <div className='container mt-48 ml-10 mb-12 relative'>
@@ -25,10 +24,15 @@ const Products = () => {
                     {
                         products.map(product => <Product
                             key={product._id}
-                            product={product}>
+                            product={product}
+                            setOrder={setOrder}>
                         </Product>)
                     }
                 </div>
+                {order && <PurchaseModal
+                    order={order}
+                    setOrder={setOrder}
+                ></PurchaseModal>}
             </div>
         </div>
     );
