@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
-const PurchaseModal = ({ order, setOrder }) => {
+const PurchaseModal = ({ order, setOrder}) => {
     const { _id, name, orderQuantity, availableQuantity, price } = order;
     const [user, loading, error] = useAuthState(auth);
     console.log(user)
@@ -23,24 +23,24 @@ const PurchaseModal = ({ order, setOrder }) => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
-console.log(order)
-        // fetch('https://localhost:5000/order', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(order)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.success) {
-        //             toast('Thank you for your order')
-        //         }
-        //         else {
-        //             toast.error('Your order has already been placed')
-        //         }
-        setOrder(null);
-        //     });
+        console.log(order)
+        fetch('https://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast('Thank you for your order')
+                }
+                else {
+                    toast.error('Your order has already been placed')
+                }
+                setOrder(null);
+            });
     }
 
     return (
@@ -52,8 +52,8 @@ console.log(order)
                     <h3 className="font-bold text-lg text-secondary">Order For: {name}</h3>
                     <form onSubmit={handleOrder} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
-                        <input type="email" name="email" disabled value={user?.email} className="input input-bordered w-full max-w-xs" />
-                        <input type="number" name="availableQuantity" disabled value={availableQuantity} className="input input-bordered w-full max-w-xs" />
+                        <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="availableQuantity" disabled value={availableQuantity} className="input input-bordered w-full max-w-xs" />
                         <p>Minimum Order Quantity:{orderQuantity}</p>
                         <input type="number" name="orderQuantity" placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name="address" placeholder="Your Address" className="input input-bordered w-full max-w-xs" />
