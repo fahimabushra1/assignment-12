@@ -24,7 +24,7 @@ const PurchaseModal = ({ order, setOrder}) => {
             phone: event.target.phone.value
         }
         console.log(order)
-        fetch('https://localhost:5000/order', {
+        fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
@@ -12,12 +11,14 @@ const MyReview = () => {
     const onSubmit = data => {
         console.log(data);
 
+
         const myreview = {
             email: user.email,
+            name: user.displayName,
             rating: data.rating,
             description: data.description,
         }
-        axios.post('https://localhost:5000/myreview', myreview)
+        axios.post('http://localhost:5000/myreview', myreview)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Shared/Button/Button';
+
+
+
 const Product = ({ product, setOrder }) => {
     const { _id, name, img, description, price } = product;
     const navigate = useNavigate();
