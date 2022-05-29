@@ -41,22 +41,23 @@ const MyOrders = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>srl.no</th>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Treatment</th>
-                            <th>Payment</th>
+                            <th>email</th>
+                            <th>product name</th>
+                            <th>product id</th>
+                            <th>order Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             orders.map((orderItem, index) => <tr key={orderItem._id}>
                                 <th>{index + 1}</th>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
+                                <td>{orderItem.userName}</td>
+                                <td>{orderItem.email}</td>
                                 <td>{orderItem.order}</td>
+                                <td>{orderItem.orderId}</td>
+                                <td>{orderItem.orderQuantity}</td>
                                 <td>
                                     {(orderItem.price && !orderItem.paid) && <Link to={`/dashboard/payment/${orderItem._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                                     {(orderItem.price && orderItem.paid) && <div>

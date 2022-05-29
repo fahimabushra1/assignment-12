@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 
-const PurchaseModal = ({ order, setOrder}) => {
+const PurchaseModal = ({ order, setOrder }) => {
     const { _id, name, orderQuantity, availableQuantity, price } = order;
     const [user, loading, error] = useAuthState(auth);
     console.log(user)
+
+    // const maxOrder = order.availableQuantity;
+    // const minOrder = order.orderQuantity
+    // if (orderQuantity == minOrder) {
+    //     const increaseOrder = parseInt(orderQuantity) + 1
+    // }
+    // if (orderQuantity == maxOrder) {
+    //     const decreaseOrder = parseInt(orderQuantity) - 1
+    // }
 
 
     const handleOrder = event => {
         event.preventDefault();
 
+
         const order = {
             orderId: _id,
             order: name,
-            minimumQuantity: orderQuantity,
+            orderQuantity: event.target.orderQuantity.value,
             maximumQuantity: availableQuantity,
             price: price,
             email: user.email,
@@ -33,8 +43,8 @@ const PurchaseModal = ({ order, setOrder}) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.success) {
-                    toast('Thank you for your order')
+                if (data) {
+                    toast.success('Thank you for your order')
                 }
                 else {
                     toast.error('Your order has already been placed')
