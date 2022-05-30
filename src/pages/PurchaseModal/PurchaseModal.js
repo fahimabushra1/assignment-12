@@ -6,28 +6,31 @@ import { toast } from 'react-toastify';
 const PurchaseModal = ({ order, setOrder }) => {
     const { _id, name, orderQuantity, availableQuantity, price } = order;
     const [user, loading, error] = useAuthState(auth);
-    console.log(user)
+    // console.log(user);
+    const [quantity, setQuantity] = useState('')
 
-    // const maxOrder = order.availableQuantity;
-    // const minOrder = order.orderQuantity
-    // if (orderQuantity == minOrder) {
-    //     const increaseOrder = parseInt(orderQuantity) + 1
-    // }
-    // if (orderQuantity == maxOrder) {
-    //     const decreaseOrder = parseInt(orderQuantity) - 1
-    // }
+    const handleError = event => {
+        const quantity = event.target.value;
+        setQuantity(quantity)
+        if (quantity !== orderQuantity || quantity < orderQuantity) {
+            toast.error(`You have to order at least ${orderQuantity}`);
+        }
+        setQuantity('')
+    }
 
 
     const handleOrder = event => {
         event.preventDefault();
+        const quantity = event.target.orderQuantity.value;
 
 
         const order = {
             orderId: _id,
             order: name,
-            orderQuantity: event.target.orderQuantity.value,
+            quantity: event.target.quantity.value,
             maximumQuantity: availableQuantity,
             price: price,
+            totalPrice: parseInt(quantity) * parseInt(price),
             email: user.email,
             userName: user.displayName,
             address: event.target.address.value,
@@ -65,7 +68,7 @@ const PurchaseModal = ({ order, setOrder }) => {
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="text" name="availableQuantity" disabled value={availableQuantity} className="input input-bordered w-full max-w-xs" />
                         <p>Minimum Order Quantity:{orderQuantity}</p>
-                        <input type="number" name="orderQuantity" placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" />
+                        <input onBlur={handleError} type="number" name="quantity" placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name="address" placeholder="Your Address" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                         <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
