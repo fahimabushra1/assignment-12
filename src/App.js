@@ -13,8 +13,10 @@ import DashBoard from "./pages/Dashbord/DashBoard/DashBoard";
 import RequireAuth from "./pages/LogIn/RequireAuth/RequireAuth";
 import MyReview from "./pages/Dashbord/MyReview/MyReview";
 import Users from "./pages/Dashbord/Users/Users";
+import AddProduct from "./pages/Dashbord/AddProduct/AddProduct";
 import Payment from "./pages/Dashbord/Payment/Payment";
 import RequireAdmin from "./pages/LogIn/RequireAdmin/RequireAdmin";
+import ManageProducts from "./pages/Dashbord/ManageProducts/ManageProducts";
 
 function App() {
   return (
@@ -36,6 +38,14 @@ function App() {
           <Route path="users" element={
             <RequireAdmin>
               <Users />
+            </RequireAdmin>} />
+          <Route path="manageProducts" element={
+            <RequireAdmin>
+              <ManageProducts />
+            </RequireAdmin>} />
+          <Route path="addProduct" element={
+            <RequireAdmin>
+              <AddProduct />
             </RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />
