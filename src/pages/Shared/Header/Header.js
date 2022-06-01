@@ -35,7 +35,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">High Way Automotive Accessories</a>
+                <a className="btn btn-ghost normal-case text-2xl text-primary">High Way Automotive Accessories</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

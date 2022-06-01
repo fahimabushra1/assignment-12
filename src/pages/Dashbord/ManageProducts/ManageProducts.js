@@ -1,39 +1,51 @@
-import ManageProduct from '../DashBoard/ManageProduct/ManageProduct';
-import useProducts from '../../../Hooks/useProducts';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
+import ManageProductModal from '../ManageProductModal/ManageProductModal';
+import ManageProduct from '../../Dashbord/DashBoard/ManageProduct/ManageProduct';
 
 const ManageProducts = () => {
-    const [products, setProducts] = useProducts();
+    const [deleteProduct, setDeleteProduct] = useState(null);
 
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
 
-    const handleDelete = productId => {
-        const proceed = window.confirm('Are you sure?');
-        if (proceed) {
-            const url = `http://localhost:5000/product/${productId}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    const remaining = products.filter(product => product._id !== productId);
-                    setProducts(remaining);
-                })
-        }
+    }).then(res => res.json()));
+
+    if (isLoading) {
+        return <Loading></Loading>
     }
+
     return (
-        <div id="" className='container'>
-            <div className="row">
-                <h1 className='text-center mb-12 text-4xl'> Our Feature Product</h1>
-                <div className="grid grid-cols-3 gap-4">
-                    {
-                        products.map(product => <ManageProduct
-                            key={product._id}
-                            product={product}
-                            handleDelete={handleDelete}>
-                        </ManageProduct>)
-                    }
-                </div>
+        <div>
+            <h2 className="text-2xl">Manage Products: {products.length}</h2>
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th>srl.no</th>
+                            <th>Product Name</th>
+                            <th>order Quantity</th>
+                            <th>price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map((product, index) => <ManageProduct
+                                key={product._key}
+                                product={product}
+                                index={index}
+                                refetch={refetch}
+                                setDeleteProduct={setDeleteProduct}
+                            ></ManageProduct>)
+                        }
+                    </tbody>
+                </table>
             </div>
+            {deleteProduct && <ManageProductModal
+                deleteProduct={deleteProduct}
+                refetch={refetch}
+                setDeleteProduct={setDeleteProduct}
+            ></ManageProductModal>}
         </div>
     );
 };
