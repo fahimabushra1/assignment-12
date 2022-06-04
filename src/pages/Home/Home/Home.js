@@ -5,6 +5,8 @@ import Products from "../Products/Products";
 import Summery from "../Summery/Summery";
 import Footer from "../../Shared/Footer/Footer";
 import Reviews from "../Reviews/Reviews";
+import ShopByBrands from "../ShopByBrands/ShopByBrands";
+import FreeQuote from "../FreeQuote/FreeQuote";
 
 const Home = () => {
     return (
@@ -13,6 +15,8 @@ const Home = () => {
             <Banner></Banner>
             <Summery></Summery>
             <Products></Products>
+            <ShopByBrands></ShopByBrands>
+            <FreeQuote></FreeQuote>
             <Reviews></Reviews>
             <Footer></Footer>
         </div>
