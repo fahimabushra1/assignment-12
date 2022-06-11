@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PurchaseModal from '../../PurchaseModal/PurchaseModal';
 import Product from '../Product/Product';
 
 const Products = () => {
 
     const [products, setProducts] = useState([]);
-    const [order, setOrder] = useState(null);
 
 
 
@@ -25,14 +23,9 @@ const Products = () => {
                         products.map(product => <Product
                             key={product._id}
                             product={product}
-                            setOrder={setOrder}>
-                        </Product>)
+                        ></Product>)
                     }
                 </div>
-                {order && <PurchaseModal
-                    order={order}
-                    setOrder={setOrder}
-                ></PurchaseModal>}
             </div>
         </div>
     );

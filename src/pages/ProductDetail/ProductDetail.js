@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PurchaseModal from '../PurchaseModal/PurchaseModal';
 
 const ProductDetail = () => {
-    const { productId, _id } = useParams();
+    const { productId } = useParams();
     console.log(productId)
     const [products, setProducts] = useState({});
+    const [order, setOrder] = useState(null);
 
 
     useEffect(() => {
@@ -16,46 +18,28 @@ const ProductDetail = () => {
 
     }, [])
 
-    const handleUpdate = (e) => {
-        e.preventDefault()
-        const quantityCount = e.target.quantity.value
-        const stockQuantity = parseInt(products.quantity)
-        console.log(stockQuantity)
-        const updatedQuantityCount = parseInt(quantityCount) + stockQuantity
-        console.log(updatedQuantityCount)
-        const updatedQuantity = { updatedQuantityCount }
-    }
-
-
-
-    const handleDelete = () => {
-        const presentQuantity = parseInt(products.quantity)
-        console.log(presentQuantity)
-        const deletedQuantityCount = presentQuantity - 1
-        console.log(deletedQuantityCount)
-        const deletedQuantity = { deletedQuantityCount }
-
-    }
 
     return (
-        <div>
-            <div className='flex flex-row justify-around'>
-                <img className='w-1/2' src={products.img} alt="" />
-                <div className='border-2 px-6 py-40 bg-slate-400 shadow-2xl'>
-                    <h2>{products.name}</h2>
-                    <p className='text-yellow-400 text-2xl'>Price: {products.price}</p>
-                    <p className='my-2'>Description: {products.description}</p>
-                    <p> Minimum Order Quantity: {products.orderQuantity}</p>
-                    <p>Available Quantity: {products.availableQuantity}</p>
-                    <div className='flex flex-row justify-around mt-10'>
-                        <form onSubmit={handleUpdate}>
-                            <input className='mb-2' name='quantity' placeholder='Quantity' type="number" />
-                            <input className='ml-2 cursor-pointer bg-yellow-400 p-2 rounded' type='submit' value='Update' />
-                        </form>
-                        <button className='bg-yellow-400 p-2 rounded' onClick={() => handleDelete(_id)}>deliever</button>
-                    </div>
-                </div>
+        <div class="mt-24 mx-16 card lg:card-side bg-base-100 shadow-xl">
+            <figure>
+                <img src={products.img} alt="Album" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">{products.name}</h2>
+                <p className='text-xl'>Price: {products.price}</p>
+                <p className='my-2'>Description: {products.description}</p>
+                <p>Minimum Order Quantity: {products.orderQuantity}</p>
+                <p>Available Quantity: {products.availableQuantity}</p>
+                <label
+                    htmlFor="purchase-modal"
+                    onClick={() => setOrder(products)}
+                    className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary w-24">purchase
+                </label>
             </div>
+            {order && <PurchaseModal
+                order={order}
+                setOrder={setOrder}
+            ></PurchaseModal>}
         </div>
     );
 };
