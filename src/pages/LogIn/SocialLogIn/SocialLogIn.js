@@ -23,7 +23,7 @@ const SocialLogin = () => {
         <div>
             <button
                 onClick={() => signInWithGoogle()}
-                className="btn btn-outline"
+                className="btn btn-outline btn-primary w-full max-w-xs"
             >Continue with Google</button>
             {errorElement}
         </div>

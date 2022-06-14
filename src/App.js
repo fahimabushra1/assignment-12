@@ -23,10 +23,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="blogs" element={<Blogs />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path='product/:productId' element={<ProductDetail />} />
-        <Route path="blogs" element={<Blogs />} />
+        <Route path='product/:productId' element={
+          <RequireAuth>
+            <ProductDetail />
+          </RequireAuth>} />
         <Route path="dashboard" element={
           <RequireAuth>
             <DashBoard />
