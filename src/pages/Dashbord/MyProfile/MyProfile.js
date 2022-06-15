@@ -22,10 +22,10 @@ const MyProfile = () => {
             })
 
         if (data) {
-            toast.success('Product add successfully')
+            toast.success('congratulation!! Your profile is added successfully')
         }
         else {
-            toast.error('Sorry!! Product is not added')
+            toast.error('Sorry!! Your profile is not added')
         }
     };
 
@@ -36,6 +36,10 @@ const MyProfile = () => {
             <form className='flex flex-col shadow-xl bg-slate-400 p-10' onSubmit={handleSubmit(onSubmit)}>
                 <h3 className='font-bold mb-2'>Your Location:</h3>
                 <input className='mb-4 p-2' placeholder='present address(city/district)' {...register("address", { required: true, maxLength: 20 })} />
+                <h3 className='font-bold mb-2'>Your Phone Number:</h3>
+                <input className='mb-4 p-2' placeholder='Phone number' {...register("phone", { required: true, maxLength: 20 })} />
+                <h3 className='font-bold mb-2'>Your LinkedIn profile link:</h3>
+                <input className='mb-4 p-2' placeholder='URL/Link' {...register("profileLink", { required: true, maxLength: 20 })} />
                 <h3 className='font-bold mb-2'>Education:</h3>
                 <div className='flex flex-row justify-evenly'>
                     <div className='flex flex-col border-2 mr-4 p-4'>

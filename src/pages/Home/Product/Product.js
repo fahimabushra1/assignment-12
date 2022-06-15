@@ -5,12 +5,12 @@ import Button from '../../Shared/Button/Button'
 
 
 const Product = ({ product }) => {
-    const { _id,name, img, description, price } = product;
+    const { _id, name, img, description, price } = product;
     const navigate = useNavigate;
 
-    const navigateToProductDetail = productId => {
-        navigate(`/product/${productId}`);
-    }
+    // const navigateToProductDetail = productId => {
+    //     navigate(`/product/${productId}`);
+    // }
 
     return (
         <div class="card w-80 mt-6 bg-base-100 shadow-xl">
@@ -21,7 +21,7 @@ const Product = ({ product }) => {
                 <h2 class="card-title">{name}</h2>
                 <p>Price:TK{price}</p>
                 <p><small>{description.slice(0, 200) + "..."}</small></p>
-                <Button onClick={() => navigateToProductDetail(_id)}>detail</Button>
+                <Button onClick={() =>navigate(`/product/${_id}`)}>detail</Button>
             </div>
         </div>
     );

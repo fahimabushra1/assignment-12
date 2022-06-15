@@ -16,7 +16,7 @@ const Header = () => {
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/myprofile">My Profile</Link></li>
+        <li><Link to="/portfolio">My Portfolio</Link></li>
 
         <li>{
             user ? <Link to="/dashboard">Dashboard</Link> : <Link to="/signup">Sign up</Link>

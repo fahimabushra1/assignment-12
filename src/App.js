@@ -17,16 +17,20 @@ import AddProduct from "./pages/Dashbord/AddProduct/AddProduct";
 import Payment from "./pages/Dashbord/Payment/Payment";
 import RequireAdmin from "./pages/LogIn/RequireAdmin/RequireAdmin";
 import ManageProducts from "./pages/Dashbord/ManageProducts/ManageProducts";
+import Portfolio from "./pages/Portfolio/Portfolio";
+import Products from "./pages/Home/Products/Products";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="blogs" element={<Blogs />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path='product/:productId' element={
+        <Route path="/product" element={<Products />} />
+        <Route path='/product/:productId' element={
           <RequireAuth>
             <ProductDetail />
           </RequireAuth>} />
