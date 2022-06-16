@@ -39,7 +39,21 @@ const Portfolio = () => {
                             <p>Result: <span className="text-lg text-orange-700">2.87 grade</span></p>
                         </div>
                     </div>
-                    <h2 className="text-center text-2xl font-semibold">Skills</h2>
+                    <div className="flex flex-row justify-between ">
+                        <div className="border-l-blue-400 border-l-4 pl-4">
+                            <h2 className="text-2xl font-semibold my-2">Skills</h2>
+                            <p className="text-orange-700">HTML</p>
+                            <p className="text-orange-700">CSS</p>
+                            <p className="text-orange-700">JavaScript</p>
+                            <p className="text-orange-700">React</p>
+                        </div>
+                        <div className="border-l-blue-400 border-l-4 pl-4">
+                            <h2 className="text-2xl font-semibold my-2">Live website Link</h2>
+                            <div className="text-orange-700 hover:underline"><a href="https://fahimabushra1.github.io/influence-product-repo/influencer.html">https://fahimabushra1.github.io/influence-product-repo/influencer.html</a></div>
+                            <div className="text-orange-700 hover:underline"><a href="https://sundarban-parjatan.web.app/">https://sundarban-parjatan.web.app/</a></div>
+                            <div className="text-orange-700 hover:underline"><a href="https://fahimabushra1.github.io/influence-product-repo/influencer.html">https://fahimabushra1.github.io/influence-product-repo/influencer.html</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
