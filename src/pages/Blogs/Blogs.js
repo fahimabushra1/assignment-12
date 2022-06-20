@@ -16,7 +16,8 @@ const Blogs = () => {
                 For example, we can write a simple prototypical relationship between two objects, user and premiumUser, using the ._proto_ function. Each of these objects has their own properties which would be shared among all accounts at that tier: all users have access to stream shows, showAccess = true, and all premiumUsers have advertisements disabled, ads = false.
                 The prototypical relationship here ensures that premiumUser inherits the showAccess property set from user without having to set it manually at the premium tier.As it returns true, we can see that premiumUser has inherited this property from user.</p>
             <h3 className="font-semibold text-xl my-2">Que: What is a unit test? Why should write unit tests?</h3>
-            <p className="font-semibold">Ans:React</p>
+            <p className="font-semibold">Ans: Unit testing is a software testing method.the individual components of software are tested in unit test. Developers write unit tests for their code to make sure that the code works correctly. This helps to detect and protect against bugs in the future.
+                Unit tests are a kind of living documentation of the product. To learn what functionality is provided by one module or another, developers can refer to unit tests to get a basic picture of the logic of the module and the system as a whole. It saves time and money.It also reduces code complexity.</p>
             <h3 className="font-semibold text-xl my-2">Que: Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h3>
             <p className="font-semibold">Ans:React</p>
         </div>
