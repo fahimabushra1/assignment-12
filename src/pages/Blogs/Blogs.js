@@ -18,8 +18,8 @@ const Blogs = () => {
             <h3 className="font-semibold text-xl my-2">Que: What is a unit test? Why should write unit tests?</h3>
             <p className="font-semibold">Ans: Unit testing is a software testing method.the individual components of software are tested in unit test. Developers write unit tests for their code to make sure that the code works correctly. This helps to detect and protect against bugs in the future.
                 Unit tests are a kind of living documentation of the product. To learn what functionality is provided by one module or another, developers can refer to unit tests to get a basic picture of the logic of the module and the system as a whole. It saves time and money.It also reduces code complexity.</p>
-            <h3 className="font-semibold text-xl my-2">Que: Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h3>
-            <p className="font-semibold">Ans:React</p>
+            <h3 className="font-semibold text-xl my-2">Que: Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts?</h3>
+            <p className="font-semibold">Ans: When we set [products, setProducts] = useState([]),react keeps a copy of the previous state and uses it as a reference point. When we use setState, it creates a new item in the systems memory. React has the ability to distinguish what needs to be re-rendered based on the previous state. But when we set products = [...],it is not a distinctly different item from the original.</p>
         </div>
     )
 }
